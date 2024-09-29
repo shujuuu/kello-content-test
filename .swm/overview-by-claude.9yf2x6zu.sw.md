@@ -43,7 +43,13 @@ graph TD
     class CO,CM core;
 ```
 
-The diagram shows a comprehensive system that integrates various business functions, from customer management and financial operations to logistics and reporting. It emphasizes the interconnected nature of these components, with Capital Management and Cooperative Operations serving as central hubs that interact with multiple other elements of the system.
+The diagram shows a comprehensive system that integrates various business functions, from customer management and financial operations to logistics and reporting. It emphasizes the interconnected nature of these components, with `Capital Management` and `Cooperative Operations` serving as central hubs that interact with multiple other elements of the system.
+
+&nbsp;
+
+---
+
+&nbsp;
 
 ### Main Components
 
@@ -86,5 +92,121 @@ The diagram shows a comprehensive system that integrates various business functi
    - This component is linked to Customer Care and Accounts Payable, suggesting it handles specialized banking tasks, including the mentioned EDI transactions and SBP payment slip generation.
 
 &nbsp;
+
+---
+
+&nbsp;
+
+### Core Components
+
+- **Cooperative Operations**: Central hub for business processes
+
+- **Capital Management**: Manages financial resources and investments
+
+### Financial Components
+
+- Accounts Payable
+
+- Accounts Receivable
+
+- Customer Payments
+
+- Cash Handling
+
+- Bank Transactions
+
+### Operational Components
+
+- VIP Management
+
+- Logistics
+
+- Maintenance
+
+- Receipts
+
+### Customer-Focused Components
+
+- Customer Care
+
+- Banking Operations
+
+### Support Components
+
+- Reports
+
+## 4\. Main Features
+
+1. **Automatic Report Generation**
+
+2. **Bank-specific EDI Transactions**
+
+3. **Standard SBP Payment Slip Creation**
+
+4. **Customer Relationship Management**
+
+## 5\. Technology Stack
+
+- Primary Language: COBOL
+
+- Key COBOL Programs:
+
+  - VIP Management: VIP301A
+
+  - Accounts Payable: CXP100, PAR001, CGP001
+
+  - Branch Operations: GALHO90
+
+  - Core Operations: KELLO1, KELLO2
+
+## 6\. Key Processes
+
+1. **Financial Operations**
+
+   - Payment processing
+
+   - Account management
+
+   - Transaction handling
+
+2. **Customer Management**
+
+   - VIP handling
+
+   - Customer care
+
+   - Payment tracking
+
+3. **Operational Processes**
+
+   - Logistics management
+
+   - Maintenance scheduling
+
+   - Receipt generation
+
+4. **Reporting and Analysis**
+
+   - Automatic report generation
+
+   - Data analysis
+
+   - Performance tracking
+
+&nbsp;
+
+## Next Steps for New Developers
+
+1. Familiarize with COBOL basics and Kello's specific COBOL implementation
+
+2. Study the system architecture and component interactions
+
+3. Review key COBOL programs (e.g., VIP301A, CXP100, GALHO90)
+
+4. Understand the financial and operational processes
+
+5. Explore the reporting and EDI transaction handling mechanisms
+
+6. Identify areas for potential modernization or refactoring
 
 <SwmMeta version="3.0.0" repo-id="Z2l0aHViJTNBJTNBa2VsbG8lM0ElM0Fzd2ltbWlv" repo-name="kello"><sup>Powered by [Swimm](https://app.swimm.io/)</sup></SwmMeta>

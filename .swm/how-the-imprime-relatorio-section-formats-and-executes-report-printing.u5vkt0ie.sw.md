@@ -32,12 +32,12 @@ The <SwmToken path="src/oep/oep053.cbl" pos="835:1:3" line-data="       IMPRIME-
 
 ---
 
-It then includes a copy of the CONDENSA section and initializes the <SwmToken path="src/oep/oep053.cbl" pos="840:3:5" line-data="           INITIALIZE REG-WORK">`REG-WORK`</SwmToken> area.
+It then includes a copy of the CONDENSA section and initializes the  `REG-WORK` area.&nbsp;
 
 ```cobol
            COPY CONDENSA.
 
-           INITIALIZE REG-WORK
+           INITIALIZE REGION-WORK
 ```
 
 ---
@@ -213,4 +213,4 @@ Finally, the section performs <SwmToken path="src/oep/oep053.cbl" pos="852:3:3" 
 
 *This is an auto-generated document by Swimm AI 🌊 and has not yet been verified by a human*
 
-<SwmMeta version="3.0.0" repo-id="Z2l0aHViJTNBJTNBa2VsbG8lM0ElM0Fzd2ltbWlv" repo-name="kello"><sup>Powered by [Swimm](/)</sup></SwmMeta>
+<SwmMeta version="3.0.0" repo-id="Z2l0aHViJTNBJTNBa2VsbG8lM0ElM0Fzd2ltbWlv" repo-name="kello"><sup>Powered by [Swimm](https://app.swimm.io/)</sup></SwmMeta>

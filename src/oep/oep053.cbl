@@ -837,7 +837,7 @@
 
            COPY CONDENSA.
 
-           INITIALIZE REG-WORK
+           INITIALIZE REGION-WORK
            PERFORM ORDEM
            MOVE ZEROS TO LIN.
            PERFORM CABECALHO

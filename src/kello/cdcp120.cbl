@@ -124,7 +124,7 @@
                10 AUX-CLASSIF        PIC 9(1)     VALUE ZEROS.
                10 AUX-CONTRATO       PIC 9(4)     VALUE ZEROS.
                10 AUX-ALBUM1         PIC 9(4)     VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -869,7 +869,7 @@
            CANCEL "CHP013T".
 
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            COPY CONDENSA.
 
@@ -972,7 +972,7 @@
            MOVE SPACES TO AUX-NRCHEQUE
                           AUX-SITUACAO
 
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            OPEN OUTPUT RELAT
 
@@ -1191,8 +1191,8 @@
 
        CABECALHO SECTION.
            MOVE GS-DESCR-ORDEM    TO ORDEM-REL.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.

@@ -76,7 +76,7 @@
            05  ST-MTD020             PIC XX       VALUE SPACES.
            05  ST-WORK               PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  LIN                   PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
@@ -692,7 +692,7 @@
            PERFORM CALL-DIALOG-SYSTEM.
       *------------------------------------------------------------
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            COPY CONDENSA.
 
@@ -745,8 +745,8 @@
        CABECALHO SECTION.
            MOVE GS-DATA-INI      TO DATA-INI-REL.
            MOVE GS-DATA-FIM      TO DATA-FIM-REL
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.

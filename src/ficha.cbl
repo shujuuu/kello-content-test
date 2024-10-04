@@ -232,7 +232,7 @@
            05  ST-MTD030             PIC XX       VALUE SPACES.
            05  FS-LOGACESS           PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -909,7 +909,7 @@
                     perform 0010-inicio
                WHEN GS-GRAVA-WORK-FLG-TRUE
                     MOVE ZEROS            TO LIN
-                                             PAG-W
+                                             PAGE-COUNT
                     MOVE "CLEAR-LIST-BOX" TO DS-PROCEDURE
                     PERFORM CALL-DIALOG-SYSTEM
                     PERFORM SET-UP-FOR-REFRESH-SCREEN
@@ -1139,7 +1139,7 @@
       *    MOVE NOME-IE11       TO CURSO-REL
 
            ADD 1                TO LIN
-                                   PAG-W
+                                   PAGE-COUNT
 
            MOVE CAB02B          TO GS-LINDET
            PERFORM INSERIR-DADOS

@@ -54,7 +54,7 @@
        COPY OEPW020.
        COPY CRPW020.
        FD  WORK.
-       01  REG-WORK.
+       01  REGION-WORK.
            05  CONTRATO-WK         PIC 9(4).
            05  CURSO-WK            PIC X(10).
            05  CIDADE-WK           PIC X(10).
@@ -122,7 +122,7 @@
            05  ST-CGD001             PIC XX       VALUE SPACES.
            05  ST-WORK               PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -421,7 +421,7 @@
               END-READ
               COMPUTE QT-FOTOS-WK = PREV-FOTOS-CO05 * QT-FORM-WK
               PERFORM CALCULAR-DADOS-BRINDE
-              WRITE REG-WORK
+              WRITE REGION-WORK
            END-IF.
       * ---------ROTINAS PERFORMADAS(PELA SEÇÃO MOVER-DADOS-WORK)---
        CALCULAR-DADOS-BRINDE SECTION.
@@ -596,7 +596,7 @@
            PERFORM SET-UP-FOR-REFRESH-SCREEN
            PERFORM CALL-DIALOG-SYSTEM
            MOVE SPACES TO GS-LINDET
-           INITIALIZE REG-WORK
+           INITIALIZE REGION-WORK
            PERFORM ORDEM.
            MOVE "REFRESH-DATA" TO DS-PROCEDURE
            PERFORM CALL-DIALOG-SYSTEM
@@ -648,7 +648,7 @@
            MOVE "INSERE-LINTOT" TO DS-PROCEDURE
            PERFORM CALL-DIALOG-SYSTEM.
        ORDEM SECTION.
-           EVALUATE GS-ORDEM
+           EVALUATE ORDER-CODE
              WHEN 1
                 MOVE "CONTRATO" TO GS-DESCR-ORDEM
                 START WORK KEY IS NOT < CONTRATO-WK INVALID KEY
@@ -691,7 +691,7 @@
                       MOVE "10" TO ST-WORK
            END-EVALUATE.
        VERIFICA-SUBTOTAL SECTION.
-           EVALUATE GS-ORDEM
+           EVALUATE ORDER-CODE
       *      WHEN 1
       *       IF CONTRATO-ANT NOT = ZEROS
       *          IF CONTRATO-ANT NOT = CONTRATO-WK
@@ -833,11 +833,11 @@
            PERFORM CALL-DIALOG-SYSTEM.
       *-------------------------------------------------------
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            COPY CONDENSA.
 
-           INITIALIZE REG-WORK
+           INITIALIZE REGION-WORK
            PERFORM ORDEM
            MOVE ZEROS TO LIN.
            PERFORM CABECALHO
@@ -933,7 +933,7 @@
            MOVE ZEROS TO CONTRATO-ANT MESANO-ANT ASSINATURA-ANT.
            MOVE SPACES TO CIDADE-ANT REPRESENT-ANT PADRAO-ANT.
        VERIFICA-SUBTOTAL1 SECTION.
-           EVALUATE GS-ORDEM
+           EVALUATE ORDER-CODE
       *      WHEN 1
       *       IF CONTRATO-ANT NOT = ZEROS
       *          IF CONTRATO-ANT NOT = CONTRATO-WK
@@ -991,8 +991,8 @@
            IF LIN > 56 PERFORM CABECALHO.
        CABECALHO SECTION.
            MOVE GS-DESCR-ORDEM TO ORDEM-REL.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.

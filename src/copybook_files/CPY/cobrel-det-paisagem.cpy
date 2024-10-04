@@ -4,7 +4,7 @@
           05 FILLER                      PIC X(05).
           05 DET-RAZAO-p                 PIC X(76).
           05 FILLER                      PIC X(38).
-          05 FILLER                      PIC X(07) VALUE "P¡GINA ".
+          05 FILLER                      PIC X(07) VALUE "P√ÅGINA ".
           05 DET-PAGINA-p                PIC 9(06) VALUE ZEROS.
 
        01 DET-CABECALHO2-p.
@@ -21,6 +21,6 @@
 
        01 DET-CABECALHO3-p.
           05 FILLER                      PIC X(142).
-          05 FILLER                      PIC X(12) VALUE "USU¡RIO...:".
+          05 FILLER                      PIC X(12) VALUE "USUÔøΩRIO...:".
           05 DET-USUARIO-P               PIC X(05).
 

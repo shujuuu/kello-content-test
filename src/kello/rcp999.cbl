@@ -91,7 +91,7 @@
            05  ST-MTD020E            PIC XX       VALUE SPACES.
            05  ST-WORK               PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  LIN                   PIC 9(02).
            05  ACHEI                 PIC X(01)    VALUE SPACES.
            05  EMP-REFERENCIA.

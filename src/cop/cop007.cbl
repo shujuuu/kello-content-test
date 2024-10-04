@@ -100,7 +100,7 @@
            05  ST-COD007       PIC XX          VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
       *  ERRO-W - flag que controla se houve erro abertura nos arquivos
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
 
            05  CONF            PIC X           VALUE SPACES.
            05  OP              PIC 9           VALUE ZEROS.
@@ -335,7 +335,7 @@
            IF ANO-V > 80 MOVE "19" TO DATA-INV(1: 2)
            ELSE MOVE "20" TO DATA-INV(1: 2).
            CALL "GRIDAT1" USING DATA-INV.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO

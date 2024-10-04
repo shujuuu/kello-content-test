@@ -155,7 +155,7 @@ The <SwmToken path="src/kello/cpp020.cbl" pos="316:9:9" line-data="           PE
            ACCEPT PARAMETROS-W FROM COMMAND-LINE.
            COPY "CBDATA1.CPY".
            MOVE DATA-INV TO DATA-MOVTO-W DATA-MOVTO-REL.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE CPP020-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE CPP020-DATA-BLOCK-VERSION-NO

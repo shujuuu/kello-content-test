@@ -43,7 +43,7 @@
            05  DATA-LOG              PIC X(10)    VALUE SPACES.
            05  HORARIO               PIC X(08)    VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  LIN                   PIC 9(02)    VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  VAR1              PIC X VALUE "\".
@@ -103,7 +103,7 @@
        PROCEDURE DIVISION.
 
        MAIN-PROCESS SECTION.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            OPEN INPUT CONTROLE
            READ CONTROLE
            MOVE EMPRESA            TO EMP-REC

@@ -88,7 +88,7 @@
            05  ST-WORK1              PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
            05  LIN                   PIC 99       VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -567,11 +567,11 @@
            PERFORM CALL-DIALOG-SYSTEM.
 
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            COPY CONDENSA.
 
-           MOVE ZEROS TO LIN PAG-W. PERFORM CABECALHO.
+           MOVE ZEROS TO LIN PAGE-COUNT. PERFORM CABECALHO.
            MOVE SPACES TO LINDET-REL
            MOVE ZEROS TO PORTADOR-WK.
            START WORK KEY IS NOT < PORTADOR-WK
@@ -629,7 +629,7 @@
        IMPRIME-CARTEIRA SECTION.
            MOVE SPACES TO REG-RELAT.
            WRITE REG-RELAT AFTER PAGE.
-           MOVE ZEROS TO LIN PAG-W. PERFORM CABECALHO1.
+           MOVE ZEROS TO LIN PAGE-COUNT. PERFORM CABECALHO1.
            MOVE ZEROS TO CARTEIRA-WK1.
            START WORK1 KEY IS NOT < CARTEIRA-WK1
                  INVALID KEY MOVE "10" TO ST-WORK.
@@ -685,8 +685,8 @@
 
            COPY DESCONDENSA.
        CABECALHO SECTION.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PAG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PAG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
@@ -697,8 +697,8 @@
            WRITE REG-RELAT FROM GS-TIPO
            MOVE 7 TO LIN.
        CABECALHO1 SECTION.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PAG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PAG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.

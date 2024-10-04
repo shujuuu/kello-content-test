@@ -33,7 +33,7 @@
            05  ERRO-W                PIC 9        VALUE ZEROS.
       *    ERRO-W - flag que controla se houve erro de abertura arquivo
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  VAR1              PIC X VALUE "\".
                10  EMP-REC           PIC XXX.

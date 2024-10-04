@@ -121,7 +121,7 @@
            05  ERRO-W                PIC 9        VALUE ZEROS.
       *  ERRO-W - flag que controla se houve erro abertura nos arquivos
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -252,7 +252,7 @@
        INICIALIZA-PROGRAMA SECTION.
            ACCEPT PARAMETROS-W FROM COMMAND-LINE.
            COPY "CBDATA1.CPY".
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE CGP001-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE CGP001-DATA-BLOCK-VERSION-NO
@@ -2170,7 +2170,7 @@
 
       *------------------------------------------------------------
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            COPY CONDENSA.
 
@@ -2222,8 +2222,8 @@
              WHEN "11" IF T-FRANQUIA-CG01 = 1 MOVE 1 TO IMPRIME-W
            END-EVALUATE.
        CABECALHO SECTION.
-           ADD 1 TO PAG-W.  MOVE PAG-W TO PAG-REL.
-           IF PAG-W = 1
+           ADD 1 TO PAGE-COUNT.  MOVE PAGE-COUNT TO PAG-REL.
+           IF PAGE-COUNT = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
            WRITE REG-RELAT FROM CAB02 AFTER 2.

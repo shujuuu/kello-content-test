@@ -117,7 +117,7 @@
            05  ST-WORK               PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
            05  COMPACTA              PIC X(01)    VALUE SPACES.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  IDENTIFICADOR-W       PIC 9(9)     VALUE ZEROS.
            05  VARIA-W               PIC 9(8)     VALUE ZEROS.
            05  DATA-INI              PIC 9(8)     VALUE ZEROS.
@@ -754,7 +754,7 @@
       *-----------------------------------------------------------
        IMPRIME-RELATORIO SECTION.
 
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
       *    COPY "COND-IMP".
 
@@ -836,8 +836,8 @@
 
        CABECALHO SECTION.
            MOVE GS-DESCR-ORDEM TO ORDEM-REL.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            IF LIN = 1
               MOVE "INICIO" TO REG-RELAT
               WRITE REG-RELAT

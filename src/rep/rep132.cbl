@@ -50,7 +50,7 @@
            05  RESP-MSG              PIC X(01).
            05  COMPACTA              PIC X(01)    VALUE SPACES.
            05  LIN                   PIC 99       VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -238,7 +238,7 @@
            PERFORM CALL-DIALOG-SYSTEM.
 
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            MOVE "S" TO COMPACTA
 
@@ -302,8 +302,8 @@
                  perform exibir-mensagem.
 
        CABECALHO SECTION.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            IF LIN = 1
               MOVE "INICIO" TO REG-RELAT
               WRITE REG-RELAT

@@ -33,7 +33,7 @@
            05  ERRO-W                PIC 9        VALUE ZEROS.
       *    ERRO-W - flag que controla se houve erro de abertura arquivo
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  DATA-MOVTO-W          PIC 9(8)     VALUE ZEROS.
            05  DATA-MOVTO-I          PIC 9(8)     VALUE ZEROS.
            05  CLIENTE-E             PIC ZZZZ.ZZZZ VALUE ZEROS.
@@ -105,7 +105,7 @@
 
        PROCEDURE DIVISION.
        MAIN-PROCESS SECTION.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
 
            DISPLAY "Informar a Empresa Desejada: " AT 0101
            ACCEPT EMP-REC                          AT 0129

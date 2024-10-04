@@ -55,7 +55,7 @@
            05  FS-LOGACESS           PIC XX       VALUE SPACES.
            05  ST-WORK               PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  LIN                   PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
@@ -357,7 +357,7 @@
        IMPRIME-RELATORIO SECTION.
            PERFORM ZERA-VARIAVEIS.
            OPEN OUTPUT RELAT.
-           MOVE ZEROS TO LIN PAG-W. PERFORM CABECALHO.
+           MOVE ZEROS TO LIN PAGE-COUNT. PERFORM CABECALHO.
            MOVE SPACES TO LINDET.
            MOVE ZEROS TO DATA-WK.
            START WORK KEY IS NOT < DATA-WK INVALID KEY
@@ -398,8 +398,8 @@
            IF LIN > 56 PERFORM CABECALHO.
 
        CABECALHO SECTION.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PAG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PAG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.

@@ -93,7 +93,7 @@
            05  ST-WORK               PIC XX       VALUE SPACES.
            05  FS-LOGACESS           PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -825,7 +825,7 @@
            PERFORM CALL-DIALOG-SYSTEM.
 
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W TOTAL-W.
+           MOVE ZEROS TO PAGE-COUNT TOTAL-W.
 
            COPY CONDENSA.
 
@@ -924,7 +924,7 @@
       *    MOVE TOTAL-W           TO VALOR-E
       *    MOVE VALOR-E           TO LINDET-REL(96: 13)
 
-           IF PAG-W NOT < GS-PAGINA
+           IF PAGE-COUNT NOT < GS-PAGINA
               WRITE REG-RELAT FROM LINDET.
 
            ADD 1 TO LIN.
@@ -947,10 +947,10 @@
                WHEN 3 MOVE "PROBLEMATICO - " TO TIPO-REL
                WHEN 4 MOVE "PARCIL       - " TO TIPO-REL
            END-EVALUATE
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
 
-           IF PAG-W NOT < GS-PAGINA
+           IF PAGE-COUNT NOT < GS-PAGINA
       *       IF LIN = 1
       *          WRITE REG-RELAT FROM CAB01 AFTER 1
       *       ELSE

@@ -157,7 +157,7 @@ The <SwmToken path="src/rep/rep206.cbl" pos="1336:1:3" line-data="       IMPRIME
 
 ```cobol
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 ```
 
 ---

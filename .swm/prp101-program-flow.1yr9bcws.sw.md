@@ -198,7 +198,7 @@ The <SwmToken path="src/kello/prp101.cbl" pos="834:1:3" line-data="       IMPRIM
               OPEN OUTPUT RELAT
            END-IF
 
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
            MOVE "PARTE-1" TO PARTE-REL.
            IF GS-PARTE1 = 1
               PERFORM CABECALHO

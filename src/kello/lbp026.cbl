@@ -43,7 +43,7 @@
       *    ou alfabético
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
            05  LIN                   PIC 9(2)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -90,7 +90,7 @@
        INICIALIZA-PROGRAMA SECTION.
            accept parametros-w from command-line.
            COPY "CBDATA1.CPY".
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO
@@ -240,7 +240,7 @@
 
        IMPRIME-RELATORIO SECTION.
            OPEN OUTPUT RELAT.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
            IF GS-ORDER = 1
               MOVE ZEROS TO CODIGO-LB26
               START LBD026 KEY IS NOT < CODIGO-LB26 INVALID KEY
@@ -266,8 +266,8 @@
            CLOSE RELAT.
 
        CABECALHO SECTION.
-           ADD 1 TO PAG-W.  MOVE PAG-W TO PAG-REL.
-           IF PAG-W = 1
+           ADD 1 TO PAGE-COUNT.  MOVE PAGE-COUNT TO PAG-REL.
+           IF PAGE-COUNT = 1
               WRITE REG-RELAT FROM CAB01
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
            WRITE REG-RELAT FROM CAB02 AFTER 2.

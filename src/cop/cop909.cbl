@@ -130,7 +130,7 @@
            05  ST-RCD100             PIC XX       VALUE SPACES.
            05  ST-WORK               PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  LIN                   PIC 9(02).
            05  EMP-REFERENCIA.
                10  VAR1              PIC X VALUE "\".
@@ -1063,7 +1063,7 @@
            PERFORM CALL-DIALOG-SYSTEM.
       *-------------------------------------------------------
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
            COPY "COND-IMP".
            OPEN OUTPUT RELAT.
            PERFORM ORDEM.
@@ -1318,8 +1318,8 @@
       *    WRITE REG-RELAT FROM LINDET.
        CABECALHO SECTION.
            MOVE GS-DESCR-ORDEM TO ORDEM-REL.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.

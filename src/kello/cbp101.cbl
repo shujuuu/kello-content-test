@@ -63,7 +63,7 @@
            05  ERRO-W                PIC 9        VALUE ZEROS.
       *    ERRO-W = 0 (não ocorreu erro abertura) erro-w=1 (houve erro)
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  I                     PIC 99       VALUE ZEROS.
            05  DATA-MOVTO-I          PIC 9(8)     VALUE ZEROS.
            05  DATA-MOVTO-W          PIC 9(8)     VALUE ZEROS.
@@ -130,7 +130,7 @@
            MOVE DATA-INV    TO DATA-INV DATA-MOVTO-W.
            CALL "GRIDAT2" USING DATA-INV
            CANCEL "GRIDAT2"
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE CBP101-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE CBP101-DATA-BLOCK-VERSION-NO
@@ -496,9 +496,9 @@
            WRITE REG-RELAT AFTER PAGE.
            CLOSE RELAT.
        CABECALHO SECTION.
-           ADD 1 TO PAG-W.  MOVE PAG-W TO PAG-REL.
+           ADD 1 TO PAGE-COUNT.  MOVE PAGE-COUNT TO PAG-REL.
            MOVE DATA-MOVTO-W   TO DATA-MOV-REL.
-           IF PAG-W = 1
+           IF PAGE-COUNT = 1
               WRITE REG-RELAT FROM CAB01
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
            WRITE REG-RELAT FROM CAB02 AFTER 2.

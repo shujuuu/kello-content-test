@@ -120,7 +120,7 @@
            05  ST-AUXILIAR           PIC XX       VALUE SPACES.
            05  FS-LOGACESS           PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -550,7 +550,7 @@
 
 
            MOVE ZEROS TO VENDEDOR-ANT TOTAL-VENDEDOR TOTAL-GERAL.
-           MOVE ZEROS TO LIN PAG-W.
+           MOVE ZEROS TO LIN PAGE-COUNT.
 
            PERFORM CABECALHO.
 
@@ -732,8 +732,8 @@
               MOVE SPACES             TO LINDET-REL.
 
        CABECALHO SECTION.
-           ADD 1         TO LIN PAG-W.
-           MOVE PAG-W    TO PAG-REL.
+           ADD 1         TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT    TO PAG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.

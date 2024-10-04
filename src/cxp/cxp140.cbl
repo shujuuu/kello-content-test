@@ -76,7 +76,7 @@
            05  ST-CXD042             PIC XX       VALUE SPACES.
            05  ST-CXD100             PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  LIN                   PIC 9(02)    VALUE ZEROS.
            05  MENSAGEM              PIC X(200).
            05  TIPO-MSG              PIC X(01).
@@ -484,7 +484,7 @@
            PERFORM CALL-DIALOG-SYSTEM.
 
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            COPY CONDENSA.
 
@@ -538,8 +538,8 @@
            COPY DESCONDENSA.
 
        CABECALHO SECTION.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.

@@ -43,7 +43,7 @@
       *    ou alfabético
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
            05  LIN                   PIC 9(2)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  DATA-W                PIC 9(8)     VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
@@ -94,7 +94,7 @@
        INICIALIZA-PROGRAMA SECTION.
            accept parametros-w from command-line.
            COPY "CBDATA1.CPY".
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO
@@ -207,7 +207,7 @@
 
        IMPRIME-PROTOCOLO SECTION.
            OPEN OUTPUT RELAT.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
            PERFORM CABECALHO.
 
            MOVE SPACES TO LINDET-REL
@@ -246,7 +246,7 @@
            CLOSE RELAT.
 
        CABECALHO SECTION.
-           ADD 1 TO PAG-W.  MOVE PAG-W TO PAG-REL.
+           ADD 1 TO PAGE-COUNT.  MOVE PAGE-COUNT TO PAG-REL.
            WRITE REG-RELAT FROM CAB01
            WRITE REG-RELAT FROM CAB02 AFTER 2.
            WRITE REG-RELAT FROM CAB03.

@@ -98,7 +98,7 @@
            05  ERRO-W                PIC 9        VALUE ZEROS.
       *    ERRO-W - flag que controla se houve erro de abertura arquivo
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  LIN                   PIC 9(02).
            05  EMP-REFERENCIA.
                10  VAR1              PIC X VALUE "\".
@@ -251,7 +251,7 @@
            ACCEPT PARAMETROS-W FROM COMMAND-LINE.
            COPY "CBDATA1.CPY".
            MOVE DATA-INV TO DATA-MOVTO-W DATA-MOVTO-REL.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE CPP020-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE CPP020-DATA-BLOCK-VERSION-NO
@@ -1216,7 +1216,7 @@
 
        IMPRIME-RELATORIO SECTION.
            COPY "COND-IMP".
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
            OPEN OUTPUT RELAT.
            MOVE DATA-MOVTO-I TO DATA-MOVTO-CP20.
            START CPD020 KEY IS = DATA-MOVTO-CP20 INVALID KEY
@@ -1291,8 +1291,8 @@
            CLOSE RELAT.
            COPY "DESC-IMP".
        CABECALHO SECTION.
-           ADD 1 TO PAG-W.  MOVE PAG-W TO PAG-REL.
-           IF PAG-W = 1
+           ADD 1 TO PAGE-COUNT.  MOVE PAGE-COUNT TO PAG-REL.
+           IF PAGE-COUNT = 1
               WRITE REG-RELAT FROM CAB01
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
            WRITE REG-RELAT FROM CAB02 AFTER 2.

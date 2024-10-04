@@ -57,7 +57,7 @@
            05  ST-CGD001             PIC XX       VALUE SPACES.
            05  DATA-DIA-INV          PIC 9(8)     VALUE ZEROS.
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  I                     PIC 99       VALUE ZEROS.
            05  DATA-E                PIC 99/99/9999.
            05  VALOR-E               PIC ZZ.ZZZ.ZZZ,ZZ.
@@ -109,7 +109,7 @@
            CALL "GRIDAT2" USING DATA-INV
            CANCEL "GRIDAT2"
            MOVE DATA-INV    TO DATA-DIA-INV.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE CBP105-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE CBP105-DATA-BLOCK-VERSION-NO

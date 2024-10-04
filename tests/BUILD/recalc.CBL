@@ -44,7 +44,7 @@
            05  ERRO-W                PIC 9        VALUE ZEROS.
       *    ERRO-W = 0 (não ocorreu erro abertura) erro-w=1 (houve erro)
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  I                     PIC 99       VALUE ZEROS.
            05  DATA-MOVTO-I          PIC 9(8)     VALUE ZEROS.
            05  DATA-MOVTO-W          PIC 9(8)     VALUE ZEROS.

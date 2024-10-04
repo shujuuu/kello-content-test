@@ -73,7 +73,7 @@
            05  ST-RCD100             PIC XX       VALUE SPACES.
            05  ST-WORK               PIC XX       VALUE SPACES.
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  VAR1              PIC X VALUE "\".
                10  EMP-REC           PIC XXX.
@@ -133,7 +133,7 @@
            GO FINALIZAR-PROGRAMA.
 
        INICIALIZA-PROGRAMA SECTION.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO
@@ -394,8 +394,8 @@
            INITIALIZE GS-FLAG-GROUP.
 
        CABECALHO SECTION.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01
            ELSE

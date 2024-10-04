@@ -101,7 +101,7 @@
            05  ST-WORK1              PIC XX       VALUE SPACES.
            05  ST-WORK2              PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -731,7 +731,7 @@
                WHEN 2 MOVE "INT.VECTO: " TO DET-TIPO-REL
            END-EVALUATE
 
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            COPY CONDENSA.
 
@@ -866,8 +866,8 @@
            WRITE REG-RELAT FROM CAB05 AFTER 2.
            WRITE REG-RELAT FROM LINTOT.
        CABECALHO SECTION.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.

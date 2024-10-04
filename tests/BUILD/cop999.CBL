@@ -154,7 +154,7 @@
            05  AUX-ITEM              PIC 9(04)    VALUE ZEROS.
            05  ERRO-W                PIC 9        VALUE ZEROS.
       *  ERRO-W - flag que controla se houve erro abertura nos arquivos
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  NR-CONTRATO-W         PIC 9(4)     VALUE ZEROS.
            05  WS-CODRED-BRINDE      PIC 9(05)    VALUE ZEROS.
            05  NR-INIC-PAD           PIC X(6)     VALUE SPACES.
@@ -466,7 +466,7 @@
            MOVE DATA-INV       TO EMISSAO-REL1.
            CALL "GRIDAT2" USING DATA-INV
            MOVE DATA-INV TO DATA-DIA-I
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO
@@ -2510,8 +2510,8 @@
               END-READ.
 
        CABECALHO SECTION.
-           ADD 1 TO PAG-W.  MOVE PAG-W TO PAG-REL.
-           IF PAG-W = 1
+           ADD 1 TO PAGE-COUNT.  MOVE PAGE-COUNT TO PAG-REL.
+           IF PAGE-COUNT = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
            WRITE REG-RELAT FROM CAB02 AFTER 2.

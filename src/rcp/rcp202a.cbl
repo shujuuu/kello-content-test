@@ -52,7 +52,7 @@
            05  ST-MTD020             PIC XX       VALUE SPACES.
            05  ST-WORK               PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  VAR1              PIC X VALUE "\".
                10  EMP-REC           PIC XXX.
@@ -948,7 +948,7 @@
                          TOT-GER-FOTO-CD-V
                          TOT-GER-MOLDURA-V
                          VENDEDOR-ANT
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            OPEN OUTPUT RELAT
 
@@ -1600,8 +1600,8 @@
            PERFORM IMPRIMIR-LINHA.
 
        CABECALHO SECTION.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE

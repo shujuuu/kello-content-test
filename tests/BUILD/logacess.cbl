@@ -98,7 +98,7 @@
       *    ordem-w - flag que controla a ordem do relatorio - numérico
       *    ou alfabético
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -160,7 +160,7 @@
            ACCEPT PARAMETROS-W FROM COMMAND-LINE.
            ACCEPT VARIA-W FROM TIME.
            COPY "CBDATA1.CPY".
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE DATA-BLOCK-VERSION-NO
@@ -392,8 +392,8 @@
 
        CABECALHO SECTION.
            MOVE ORDEM TO ORDEM-REL
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01
            ELSE

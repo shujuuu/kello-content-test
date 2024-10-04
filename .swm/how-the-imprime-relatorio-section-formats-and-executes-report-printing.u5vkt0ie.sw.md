@@ -15,12 +15,12 @@ This document will cover how the <SwmToken path="src/oep/oep053.cbl" pos="835:1:
 
 # Initializing the report
 
-The <SwmToken path="src/oep/oep053.cbl" pos="835:1:3" line-data="       IMPRIME-RELATORIO SECTION.">`IMPRIME-RELATORIO`</SwmToken> section starts by initializing the page counter <SwmToken path="src/oep/oep053.cbl" pos="836:7:9" line-data="           MOVE ZEROS TO PAG-W.">`PAG-W`</SwmToken> to zero.
+The <SwmToken path="src/oep/oep053.cbl" pos="835:1:3" line-data="       IMPRIME-RELATORIO SECTION.">`IMPRIME-RELATORIO`</SwmToken> section starts by initializing the page counter <SwmToken path="src/oep/oep053.cbl" pos="836:7:9" line-data="           MOVE ZEROS TO PAGE-COUNT.">`PAGE-COUNT`</SwmToken> to zero.
 
 ```cobol
       *-------------------------------------------------------
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
 ```
 
@@ -32,12 +32,12 @@ The <SwmToken path="src/oep/oep053.cbl" pos="835:1:3" line-data="       IMPRIME-
 
 ---
 
-It then includes a copy of the CONDENSA section and initializes the <SwmToken path="src/oep/oep053.cbl" pos="840:3:5" line-data="           INITIALIZE REG-WORK">`REG-WORK`</SwmToken> area.
+It then includes a copy of the CONDENSA section and initializes the  `REGION-WORK` area.&nbsp;
 
 ```cobol
            COPY CONDENSA.
 
-           INITIALIZE REG-WORK
+           INITIALIZE REGION-WORK
 ```
 
 ---
@@ -50,7 +50,7 @@ It then includes a copy of the CONDENSA section and initializes the <SwmToken pa
 
 # Ordering the data
 
-The ORDEM section is performed to order the data based on the value of <SwmToken path="src/oep/oep053.cbl" pos="651:3:5" line-data="           EVALUATE GS-ORDEM">`GS-ORDEM`</SwmToken>.
+The ORDEM section is performed to order the data based on the value of <SwmToken path="src/oep/oep053.cbl" pos="651:3:5" line-data="           EVALUATE ORDER-CODE">`ORDER-CODE`</SwmToken>.
 
 ```cobol
            PERFORM ORDEM
@@ -64,11 +64,11 @@ The ORDEM section is performed to order the data based on the value of <SwmToken
 
 ---
 
-The ORDEM section evaluates <SwmToken path="src/oep/oep053.cbl" pos="651:3:5" line-data="           EVALUATE GS-ORDEM">`GS-ORDEM`</SwmToken> and sets the appropriate order key and description.
+The ORDEM section evaluates <SwmToken path="src/oep/oep053.cbl" pos="651:3:5" line-data="           EVALUATE ORDER-CODE">`ORDER-CODE`</SwmToken> and sets the appropriate order key and description.
 
 ```cobol
        ORDEM SECTION.
-           EVALUATE GS-ORDEM
+           EVALUATE ORDER-CODE
              WHEN 1
                 MOVE "CONTRATO" TO GS-DESCR-ORDEM
                 START WORK KEY IS NOT < CONTRATO-WK INVALID KEY
@@ -119,8 +119,8 @@ The CABECALHO section moves the order description to <SwmToken path="src/oep/oep
 ```cobol
        CABECALHO SECTION.
            MOVE GS-DESCR-ORDEM TO ORDEM-REL.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
@@ -213,4 +213,4 @@ Finally, the section performs <SwmToken path="src/oep/oep053.cbl" pos="852:3:3" 
 
 *This is an auto-generated document by Swimm AI 🌊 and has not yet been verified by a human*
 
-<SwmMeta version="3.0.0" repo-id="Z2l0aHViJTNBJTNBa2VsbG8lM0ElM0Fzd2ltbWlv" repo-name="kello"><sup>Powered by [Swimm](/)</sup></SwmMeta>
+<SwmMeta version="3.0.0" repo-id="Z2l0aHViJTNBJTNBa2VsbG8lM0ElM0Fzd2ltbWlv" repo-name="kello"><sup>Powered by [Swimm](https://app.swimm.io/)</sup></SwmMeta>

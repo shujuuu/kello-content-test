@@ -54,7 +54,7 @@
            05  FS-LOGACESS           PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
            05  AUX-SEQUENCIA         PIC 9(03)    VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -531,8 +531,8 @@
            MOVE GS-CLIENTE     TO CLIENTE-REL
            MOVE GS-NOME-CLIENTE TO NOME-CLIENTE-REL.
            MOVE GS-DESCR-ORDEM TO ORDEM-REL.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
@@ -544,7 +544,7 @@
            MOVE 7 TO LIN.
       * imprimir dados agenda
        IMPRIMIR-CONTATO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            COPY CONDENSA.
 
@@ -611,8 +611,8 @@
            MOVE GS-CLIENTE     TO CLIENTE-REL
            MOVE GS-NOME-CLIENTE TO NOME-CLIENTE-REL.
            MOVE GS-DESCR-ORDEM TO ORDEM-REL.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.

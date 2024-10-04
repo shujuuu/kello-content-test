@@ -67,7 +67,7 @@
            05  ST-RED205             PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
            05  LIN                   PIC 99       VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -957,8 +957,8 @@
            copy descondensa.
 
        CABECALHO SECTION.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            WRITE REG-RELAT FROM CAB01 AFTER 0
            WRITE REG-RELAT FROM CAB02.
            WRITE REG-RELAT FROM CAB03.

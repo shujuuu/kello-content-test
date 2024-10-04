@@ -80,7 +80,7 @@
            05  ST-WORK               PIC XX       VALUE "35".
            05  ST-WORK2              PIC XX       VALUE "35".
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -631,11 +631,11 @@
            PERFORM CALL-DIALOG-SYSTEM.
 
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            copy condensa.
 
-           MOVE ZEROS TO LIN PAG-W.
+           MOVE ZEROS TO LIN PAGE-COUNT.
            PERFORM CABECALHO.
            MOVE SPACES TO LINDET-REL
 
@@ -745,8 +745,8 @@
            WRITE REG-RELAT FROM CPP050-LINDET.
 
        CABECALHO SECTION.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PAG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PAG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01
            ELSE

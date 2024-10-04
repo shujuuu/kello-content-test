@@ -185,7 +185,7 @@ The <SwmToken path="src/crp/crp062.cbl" pos="1122:1:3" line-data="       IMPRIMI
 ```cobol
        IMPRIMIR-RELATORIO SECTION.
            OPEN I-O WORK
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            COPY CONDENSA.
 

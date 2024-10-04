@@ -76,7 +76,7 @@
            05  ST-MTD020             PIC XX       VALUE SPACES.
            05  ST-WORK               PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  LIN                   PIC 9(02).
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
@@ -744,7 +744,7 @@
                          TOTG-VENDA TOTG-VENDA-DEF TOTG-COMISSAO1
                          TOTG-COMISSAO TOTG-COMISSAO-DEF.
 
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            COPY CONDENSA.
 
@@ -916,9 +916,9 @@
            MOVE GS-DESCRICAO TO ORDEM-REL2
            IF GS-TIPO-REL = 1 MOVE "DEFLACIONADO" TO ORDEM-REL
            ELSE MOVE "NORMAL" TO ORDEM-REL.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
-           IF PAG-W = 1
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
+           IF PAGE-COUNT = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
            WRITE REG-RELAT FROM CAB02.
@@ -936,9 +936,9 @@
            MOVE GS-DESCRICAO TO ORDEM-REL2
            IF GS-TIPO-REL = 1 MOVE "DEFLACIONADO" TO ORDEM-REL
            ELSE MOVE "NORMAL" TO ORDEM-REL.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
-           IF PAG-W = 1
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
+           IF PAGE-COUNT = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
            WRITE REG-RELAT FROM CAB02.

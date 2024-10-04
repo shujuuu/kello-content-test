@@ -121,7 +121,7 @@ The <SwmToken path="src/kello/cgp010a.cbl" pos="3:6:6" line-data="       PROGRAM
 
        INICIALIZA-PROGRAMA SECTION.
            COPY "CBDATA1.CPY".
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO

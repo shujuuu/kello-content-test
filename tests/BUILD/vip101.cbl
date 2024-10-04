@@ -65,7 +65,7 @@
            05  ULT-SEQ               PIC 9(3)     VALUE ZEROS.
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
            05  LIN                   PIC 9(2)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  IDENTIFICADOR-W       PIC 9(9)     VALUE ZEROS.
            05  DATA-MOVTO-W          PIC 9(8)     VALUE ZEROS.
            05  DATA-MOVTO-I          PIC 9(8)     VALUE ZEROS.
@@ -196,7 +196,7 @@
            MOVE DATA-INV TO DATA-MOVTO-W
            CALL "GRIDAT2"  USING DATA-INV.
            MOVE DATA-INV       TO DATA-DIA-I.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO TO DS-DATA-BLOCK-VERSION-NO.
@@ -616,7 +616,7 @@
            PERFORM CALL-DIALOG-SYSTEM.
       *-----------------------------------------------------------
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
            OPEN OUTPUT RELAT.
            MOVE ZEROS TO LIN. PERFORM CABECALHO.
 
@@ -692,8 +692,8 @@
 
 
        CABECALHO SECTION.
-           ADD 1 TO PAG-W.  MOVE PAG-W TO PAG-REL.
-           IF PAG-W = 1
+           ADD 1 TO PAGE-COUNT.  MOVE PAGE-COUNT TO PAG-REL.
+           IF PAGE-COUNT = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
            WRITE REG-RELAT FROM CAB02 AFTER 2.

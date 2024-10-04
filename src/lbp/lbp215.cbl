@@ -53,7 +53,7 @@
       *    ERRO-W - flag que controla se houve erro de abertura arquivo
            05  ULT-SEQ               PIC 9(3)     VALUE ZEROS.
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  CONTRATO-ANT          PIC 9(4)     VALUE ZEROS.
            05  LIN                   PIC 9(2)     VALUE ZEROS.
            05  EMP-REFERENCIA.
@@ -121,7 +121,7 @@
            MOVE DATA-INV TO DATA-MOVTO-W.
            CALL "GRIDAT2"  USING DATA-INV.
            MOVE DATA-INV       TO DATA-DIA-I.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO TO DS-DATA-BLOCK-VERSION-NO.
@@ -271,7 +271,7 @@
            PERFORM CALL-DIALOG-SYSTEM.
       *-----------------------------------------------------
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
            INITIALIZE QTDE-ACUM-W
 
            COPY CONDENSA.
@@ -335,8 +335,8 @@
            COPY DESCONDENSA.
 
        CABECALHO SECTION.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
            IF LIN = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE

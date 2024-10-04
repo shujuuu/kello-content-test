@@ -19,7 +19,7 @@ The <SwmToken path="src/logacess.cbl" pos="159:1:3" line-data="       INICIALIZA
            ACCEPT PARAMETROS-W FROM COMMAND-LINE.
            ACCEPT VARIA-W FROM TIME.
            COPY "CBDATA1.CPY".
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE DATA-BLOCK-VERSION-NO
@@ -88,7 +88,7 @@ The <SwmToken path="src/logacess.cbl" pos="159:1:3" line-data="       INICIALIZA
            ACCEPT PARAMETROS-W FROM COMMAND-LINE.
            ACCEPT VARIA-W FROM TIME.
            COPY "CBDATA1.CPY".
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE DATA-BLOCK-VERSION-NO

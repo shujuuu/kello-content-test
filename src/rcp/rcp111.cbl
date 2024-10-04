@@ -44,7 +44,7 @@
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
            05  LIN                   PIC 9(2)     VALUE ZEROS.
            05  DIAS-PARCELA          PIC 9(04)    VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  VALOR-E               PIC ZZ,ZZZ.
            05  ERRO                  PIC X(01)    VALUE SPACES.
            05  EMP-REFERENCIA.
@@ -95,7 +95,7 @@
 
        INICIALIZA-PROGRAMA SECTION.
            ACCEPT PARAMETROS-W FROM COMMAND-LINE.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO

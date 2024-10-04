@@ -131,7 +131,7 @@
                10  ARQ-REC           PIC X(10).
            05  EMPRESA-REF REDEFINES EMP-REFERENCIA PIC X(30).
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  LINHA                 PIC 99       VALUE ZEROS.
            05  COMPACTA              PIC X(01)    VALUE SPACES.
            05  NR-PLAN-W             PIC 9(14)    VALUE ZEROS.
@@ -797,10 +797,10 @@
            CANCEL "GRTIME".
 
        CABECALHO SECTION.
-           ADD 1 TO PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
 
-           IF PAG-W = 1
+           IF PAGE-COUNT = 1
               IF GS-IMPRIMIR = "S"
                  IF LNK-MAPEAMENTO <> SPACES
                     WRITE REG-IMPRE FROM LINHA-01 AFTER 0
@@ -847,7 +847,7 @@
               OPEN OUTPUT RELAT
            END-IF
 
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
            MOVE "PARTE-1" TO PARTE-REL.
            IF GS-PARTE1 = 1
               PERFORM CABECALHO

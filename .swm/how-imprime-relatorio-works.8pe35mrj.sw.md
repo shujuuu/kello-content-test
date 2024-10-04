@@ -59,7 +59,7 @@ In <SwmPath>[src/crp/crp020.cbl](src/crp/crp020.cbl)</SwmPath>, <SwmToken path="
 
 ```cobol
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            COPY CONDENSA.
 
@@ -127,7 +127,7 @@ In <SwmPath>[src/ccp/ccplog.cbl](src/ccp/ccplog.cbl)</SwmPath>, <SwmToken path="
 ```cobol
        IMPRIME-RELATORIO SECTION.
            MOVE ZEROS TO SALDO-WT SALDO-GT
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            COPY CONDENSA.
 

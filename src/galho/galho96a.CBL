@@ -39,7 +39,7 @@
            05  ERRO-W                PIC 9        VALUE ZEROS.
       *    ERRO-W - flag que controla se houve erro de abertura arquivo
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".

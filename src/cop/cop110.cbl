@@ -92,7 +92,7 @@
            05  ST-WORK1              PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
            05  LIN                   PIC 9(02)    VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -1079,7 +1079,7 @@
       *--------------------------------------------------------------
        IMPRIME-RELATORIO SECTION.
 
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            COPY CONDENSA.
 
@@ -1171,9 +1171,9 @@
            COPY DESCONDENSA.
 
        CABECALHO SECTION.
-           ADD 1 TO PAG-W.
-           MOVE PAG-W TO PG-REL.
-           IF PAG-W = 1
+           ADD 1 TO PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
+           IF PAGE-COUNT = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
            WRITE REG-RELAT FROM CAB02 AFTER 2.

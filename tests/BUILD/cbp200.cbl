@@ -55,7 +55,7 @@
 
        01  VARIAVEIS.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  VAR1              PIC X VALUE "\".
                10  EMP-REC           PIC XXX.

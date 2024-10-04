@@ -141,7 +141,7 @@ The <SwmToken path="src/kello/crp020b.cbl" pos="3:6:6" line-data="       PROGRAM
            MOVE DATA-INV TO DATA-DIA-I.
            CALL "GRIDAT1" USING DATA-INV.
            MOVE DATA-INV TO DATA-MOVTO-W.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
 ```
 

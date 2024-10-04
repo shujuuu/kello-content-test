@@ -52,7 +52,7 @@
            05  ERRO-W                PIC 9        VALUE ZEROS.
       *    ERRO-W - flag que controla se houve erro de abertura arquivo
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -105,7 +105,7 @@
       *    MOVE DATA-INV TO DATA-MOVTO-W DATA-MOVTO-REL.
            CALL "GRIDAT2"  USING DATA-INV.
            MOVE DATA-INV       TO DATA-DIA-I.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO TO DS-DATA-BLOCK-VERSION-NO.

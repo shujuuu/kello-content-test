@@ -54,7 +54,7 @@
       *    ou alfabético
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
            05  LIN                   PIC 9(2)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  ULT-CONTRATO          PIC 9(4)     VALUE ZEROS.
            05  ULT-DATAREALIZA       PIC 9(8)     VALUE ZEROS.
            05  DATA-ANTERIOR         PIC 9(8)     VALUE ZEROS.
@@ -112,7 +112,7 @@
        INICIALIZA-PROGRAMA SECTION.
            accept parametros-w from command-line.
            COPY "CBDATA1.CPY".
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO
@@ -473,7 +473,7 @@
 
        IMPRIME-RELATORIO SECTION.
            OPEN OUTPUT RELAT.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            MOVE GS-DATA         TO DATA-INV
            CALL "GRIDAT2" USING DATA-INV
@@ -545,8 +545,8 @@
            move spaces to mensagem.
 
        CABECALHO SECTION.
-           ADD 1 TO PAG-W.  MOVE PAG-W TO PAG-REL.
-           IF PAG-W = 1
+           ADD 1 TO PAGE-COUNT.  MOVE PAGE-COUNT TO PAG-REL.
+           IF PAGE-COUNT = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
            WRITE REG-RELAT FROM CAB02 AFTER 2.

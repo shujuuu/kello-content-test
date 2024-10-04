@@ -30,7 +30,7 @@
            05  ERRO-W                PIC 9        VALUE ZEROS.
       *    ERRO-W - flag que controla se houve erro de abertura arquivo
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  VAR1              PIC X VALUE "\".
                10  EMP-REC           PIC XXX.
@@ -77,7 +77,7 @@
 
        PROCEDURE DIVISION.
        MAIN-PROCESS SECTION.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            OPEN INPUT CONTROLE
            READ CONTROLE
            MOVE EMPRESA            TO EMP-REC
@@ -91,7 +91,7 @@
 
            INITIALIZE REG-COD050
 
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
            OPEN OUTPUT RELAT.
 
            MOVE ZEROS          TO NR-CONTRATO-CO50.

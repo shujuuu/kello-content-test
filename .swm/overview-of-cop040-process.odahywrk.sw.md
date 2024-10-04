@@ -440,7 +440,7 @@ The <SwmToken path="src/cop/cop040.cbl" pos="513:4:4" line-data="           CALL
        INICIALIZA-PROGRAMA SECTION.
       *    ACCEPT PARAMETROS-W FROM COMMAND-LINE.
            COPY "CBDATA1.CPY".
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO

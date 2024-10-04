@@ -24,7 +24,7 @@ The <SwmToken path="src/oep/oep030.cbl" pos="266:1:3" line-data="       INICIALI
            MOVE DATA-INV TO DATA-MOVTO-W DATA-MOVTO-REL.
            CALL "GRIDAT2"  USING DATA-INV.
            MOVE DATA-INV       TO DATA-DIA-I.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO
@@ -58,7 +58,7 @@ Similarly, the <SwmToken path="src/crp/crp020.cbl" pos="272:1:3" line-data="    
            MOVE DATA-INV TO DATA-MOVTO-W DATA-MOVTO-REL.
            CALL "GRIDAT2"  USING DATA-INV.
            MOVE DATA-INV       TO DATA-DIA-I.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO

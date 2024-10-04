@@ -263,7 +263,7 @@ The <SwmToken path="src/acp/acp900.cbl" pos="436:4:4" line-data="           CALL
            ACCEPT DATA6-W FROM DATE.
            ACCEPT HORA-BRA FROM TIME.
 
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE DATA-BLOCK-VERSION-NO

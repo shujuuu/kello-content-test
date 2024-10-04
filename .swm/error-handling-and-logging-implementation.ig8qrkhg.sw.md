@@ -12,13 +12,13 @@ This document will cover how error handling and logging are implemented in the s
 
 # Error Handling Mechanism
 
-The error handling mechanism is initiated in the <SwmToken path="src/logacess.cbl" pos="155:3:5" line-data="           PERFORM INICIALIZA-PROGRAMA.">`INICIALIZA-PROGRAMA`</SwmToken> section. Here, the system attempts to open the <SwmToken path="src/logacess.cbl" pos="171:4:4" line-data="           MOVE &quot;LOGACESS&quot; TO ARQ-REC. MOVE EMPRESA-REF TO">`LOGACESS`</SwmToken> file. If the file status (<SwmToken path="src/logacess.cbl" pos="177:3:5" line-data="           IF FS-LOGACESS &lt;&gt; &quot;00&quot;">`FS-LOGACESS`</SwmToken>) is not '00', an error message is moved to <SwmToken path="src/logacess.cbl" pos="178:15:15" line-data="              MOVE &quot;ERRO ABERTURA LOGACESS: &quot;  TO MENSAGEM">`MENSAGEM`</SwmToken>, and the error flag <SwmToken path="src/logacess.cbl" pos="163:11:13" line-data="           MOVE ZEROS TO PAG-W ERRO-W.">`ERRO-W`</SwmToken> is set to 1. The <SwmToken path="src/logacess.cbl" pos="180:3:5" line-data="              PERFORM EXIBIR-MENSAGEM">`EXIBIR-MENSAGEM`</SwmToken> function is then performed to display the error message.
+The error handling mechanism is initiated in the <SwmToken path="src/logacess.cbl" pos="155:3:5" line-data="           PERFORM INICIALIZA-PROGRAMA.">`INICIALIZA-PROGRAMA`</SwmToken> section. Here, the system attempts to open the <SwmToken path="src/logacess.cbl" pos="171:4:4" line-data="           MOVE &quot;LOGACESS&quot; TO ARQ-REC. MOVE EMPRESA-REF TO">`LOGACESS`</SwmToken> file. If the file status (<SwmToken path="src/logacess.cbl" pos="177:3:5" line-data="           IF FS-LOGACESS &lt;&gt; &quot;00&quot;">`FS-LOGACESS`</SwmToken>) is not '00', an error message is moved to <SwmToken path="src/logacess.cbl" pos="178:15:15" line-data="              MOVE &quot;ERRO ABERTURA LOGACESS: &quot;  TO MENSAGEM">`MENSAGEM`</SwmToken>, and the error flag <SwmToken path="src/logacess.cbl" pos="163:11:13" line-data="           MOVE ZEROS TO PAGE-COUNT ERRO-W.">`ERRO-W`</SwmToken> is set to 1. The <SwmToken path="src/logacess.cbl" pos="180:3:5" line-data="              PERFORM EXIBIR-MENSAGEM">`EXIBIR-MENSAGEM`</SwmToken> function is then performed to display the error message.
 
 ```cobol
            ACCEPT PARAMETROS-W FROM COMMAND-LINE.
            ACCEPT VARIA-W FROM TIME.
            COPY "CBDATA1.CPY".
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE DATA-BLOCK-VERSION-NO
@@ -72,7 +72,7 @@ The logging mechanism is also part of the <SwmToken path="src/logacess.cbl" pos=
            ACCEPT PARAMETROS-W FROM COMMAND-LINE.
            ACCEPT VARIA-W FROM TIME.
            COPY "CBDATA1.CPY".
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE DATA-BLOCK-VERSION-NO

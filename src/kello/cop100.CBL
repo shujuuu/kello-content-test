@@ -200,7 +200,7 @@
            05  AUX-ITEM                   PIC 9(04) VALUE ZEROS.
            05  ERRO-W                     PIC 9     VALUE ZEROS.
       *  ERRO-W - flag que controla se houve erro abertura nos arquivos
-           05  PAG-W                      PIC 9(2)  VALUE ZEROS.
+           05  PAGE-COUNT                      PIC 9(2)  VALUE ZEROS.
            05  NR-CONTRATO-W              PIC 9(4)  VALUE ZEROS.
            05  WS-CODRED-BRINDE           PIC 9(05) VALUE ZEROS.
            05  WS-CODRED-CUSTEIO          PIC 9(05) VALUE ZEROS.
@@ -746,7 +746,7 @@
            MOVE DATA-INV       TO EMISSAO-REL1.
            CALL "GRIDAT2" USING DATA-INV
            MOVE DATA-INV TO DATA-DIA-I
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO
@@ -1608,7 +1608,7 @@
 
            OPEN OUTPUT ARQUIVO.
 
-           MOVE ZEROS TO LIN PAG-W.
+           MOVE ZEROS TO LIN PAGE-COUNT.
            PERFORM CABECALHO-ARQUIVO.
            MOVE GS-CONTRATO       TO LINDET-REL(1: 5)
            MOVE GS-TAXA           TO TAXA-E
@@ -1651,7 +1651,7 @@
               STRING "\ARQUIVOS\COMISSAO-" GS-CONTRATO INTO
                                           ARQUIVO-IMPRESSAO
               OPEN OUTPUT ARQUIVO
-              MOVE ZEROS TO LIN PAG-W
+              MOVE ZEROS TO LIN PAGE-COUNT
               PERFORM CABECALHO-ARQUIVO
               MOVE GS-CONTRATO       TO LINDET-REL(1: 5)
               MOVE GS-TAXA           TO TAXA-E
@@ -1694,7 +1694,7 @@
                                           ARQUIVO-IMPRESSAO
               OPEN OUTPUT ARQUIVO
 
-              MOVE ZEROS TO LIN PAG-W
+              MOVE ZEROS TO LIN PAGE-COUNT
               PERFORM CABECALHO-ARQUIVO
               MOVE GS-CONTRATO       TO LINDET-REL(1: 5)
               MOVE GS-TAXA           TO TAXA-E
@@ -1737,7 +1737,7 @@
                                           ARQUIVO-IMPRESSAO
               OPEN OUTPUT ARQUIVO
 
-              MOVE ZEROS TO LIN PAG-W
+              MOVE ZEROS TO LIN PAGE-COUNT
               PERFORM CABECALHO-ARQUIVO
               MOVE GS-CONTRATO       TO LINDET-REL(1: 5)
               MOVE GS-TAXA           TO TAXA-E
@@ -1780,7 +1780,7 @@
                                           ARQUIVO-IMPRESSAO
               OPEN OUTPUT ARQUIVO
 
-              MOVE ZEROS TO LIN PAG-W
+              MOVE ZEROS TO LIN PAGE-COUNT
               PERFORM CABECALHO-ARQUIVO
               MOVE GS-CONTRATO       TO LINDET-REL(1: 5)
               MOVE GS-TAXA           TO TAXA-E
@@ -1823,7 +1823,7 @@
                                           ARQUIVO-IMPRESSAO
               OPEN OUTPUT ARQUIVO
 
-              MOVE ZEROS TO LIN PAG-W
+              MOVE ZEROS TO LIN PAGE-COUNT
               PERFORM CABECALHO-ARQUIVO
               MOVE GS-CONTRATO       TO LINDET-REL(1: 5)
               MOVE GS-TAXA           TO TAXA-E
@@ -1866,7 +1866,7 @@
                                           ARQUIVO-IMPRESSAO
               OPEN OUTPUT ARQUIVO
 
-              MOVE ZEROS TO LIN PAG-W
+              MOVE ZEROS TO LIN PAGE-COUNT
               PERFORM CABECALHO-ARQUIVO
               MOVE GS-CONTRATO       TO LINDET-REL(1: 5)
               MOVE GS-TAXA           TO TAXA-E
@@ -2256,8 +2256,8 @@
            END-PERFORM.
 
        CABECALHO-ARQUIVO SECTION.
-           ADD 1 TO PAG-W.  MOVE PAG-W TO PAG-REL.
-           IF PAG-W = 1
+           ADD 1 TO PAGE-COUNT.  MOVE PAGE-COUNT TO PAG-REL.
+           IF PAGE-COUNT = 1
               MOVE "INICIO" TO REG-ARQUIVO
               WRITE REG-ARQUIVO
               WRITE REG-ARQUIVO FROM CAB01
@@ -4547,8 +4547,8 @@
               END-READ.
 
        CABECALHO SECTION.
-           ADD 1 TO PAG-W.  MOVE PAG-W TO PAG-REL.
-           IF PAG-W = 1
+           ADD 1 TO PAGE-COUNT.  MOVE PAGE-COUNT TO PAG-REL.
+           IF PAGE-COUNT = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
            WRITE REG-RELAT FROM CAB02 AFTER 2.

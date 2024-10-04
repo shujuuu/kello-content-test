@@ -83,7 +83,7 @@
            05  ST-PAR001             PIC XX       VALUE SPACES.
            05  ST-RED101             PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  ACHEI                 PIC X(01)    VALUE SPACES.
            05  IND                   PIC 9(02).
            05  EMP-REFERENCIA.
@@ -860,7 +860,7 @@
 
       *--------------------------------------------------------------
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            COPY CONDENSA.
 
@@ -1114,9 +1114,9 @@
               END-IF
            END-IF
 
-           ADD 1 TO PAG-W.
-           MOVE PAG-W TO PG-REL.
-           IF PAG-W = 1
+           ADD 1 TO PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
+           IF PAGE-COUNT = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
            WRITE REG-RELAT FROM CAB02 AFTER 2.

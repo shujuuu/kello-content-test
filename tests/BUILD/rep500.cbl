@@ -136,7 +136,7 @@
            05  ST-WORK3              PIC XX       VALUE SPACES.
            05  ST-WORK4              PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  LIN                   PIC 99       VALUE ZEROS.
            05  AUX-EVENTO            PIC X(15)    VALUE SPACES.
            05  EMP-REFERENCIA.
@@ -1488,7 +1488,7 @@
 
        continuar-impressao1 section.
 
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            copy condensa.
 
@@ -1517,7 +1517,7 @@
            copy descondensa.
 
        IMPRIMIR-INTEGRAL SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            copy condensa.
 
@@ -1551,9 +1551,9 @@
                WHEN 1 MOVE "EVENTO"        TO CIDADE-REL
                WHEN 2 MOVE "CONTRATO"      TO CIDADE-REL
            END-EVALUATE
-           ADD 1 TO PAG-W.
-           MOVE PAG-W TO PG-REL.
-           IF PAG-W = 1
+           ADD 1 TO PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
+           IF PAGE-COUNT = 1
               WRITE REG-RELAT FROM CAB01
            ELSE WRITE REG-RELAT FROM CAB01 AFTER PAGE.
            WRITE REG-RELAT FROM CAB02 AFTER 2.
@@ -1615,9 +1615,9 @@
                WHEN 2 MOVE "CONTRATO"      TO CIDADE-REL-P
            END-EVALUATE
 
-           ADD 1      TO PAG-W.
-           MOVE PAG-W TO PG-REL-P
-           IF PAG-W = 1
+           ADD 1      TO PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL-P
+           IF PAGE-COUNT = 1
               WRITE REG-RELAT FROM CAB01-P
            ELSE
               WRITE REG-RELAT FROM CAB01-P AFTER PAGE.

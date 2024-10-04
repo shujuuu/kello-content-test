@@ -100,7 +100,7 @@
            05  ST-MTD020             PIC XX       VALUE SPACES.
            05  ST-WORK               PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  LIN                   PIC 99       VALUE ZEROS.
            05  SEQUENCIA             PIC 9(04).
            05  MASC-SEQ              PIC ZZZ9.
@@ -583,7 +583,7 @@
            ELSE
               OPEN OUTPUT FILIAL.
 
-           MOVE ZEROS TO PAG-W SEQUENCIA.
+           MOVE ZEROS TO PAGE-COUNT SEQUENCIA.
            PERFORM ORDEM.
 
            MOVE ZEROS TO LIN.
@@ -613,7 +613,7 @@
 
 
 
-      *    MOVE ZEROS TO PAG-W SEQUENCIA.
+      *    MOVE ZEROS TO PAGE-COUNT SEQUENCIA.
       *    COPY "COND-IMP".
       *    OPEN OUTPUT RELAT.
       *    PERFORM ORDEM.
@@ -816,10 +816,10 @@
            MOVE GS-CONTRATO      TO CONTRATO-REL.
            MOVE GS-IDENTIFICACAO TO INSTITUICAO-REL
            MOVE GS-DESCR-ORDEM   TO ORDEM-REL.
-           ADD 1 TO PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
 
-           IF PAG-W = 1
+           IF PAGE-COUNT = 1
               IF GS-IMPRIMIR = "S"
                  WRITE REG-RELAT FROM CAB01 AFTER 0
               ELSE
@@ -837,7 +837,7 @@
                  WRITE REG-FILIAL
                  WRITE REG-FILIAL FROM CAB01.
 
-      *    IF PAG-W = 1
+      *    IF PAGE-COUNT = 1
       *       WRITE REG-RELAT FROM CAB01 AFTER 0
       *    ELSE
       *       WRITE REG-RELAT FROM CAB01 AFTER PAGE.
@@ -854,7 +854,7 @@
       *    WRITE REG-RELAT FROM CAB02A AFTER 2.
            MOVE 3 TO LIN.
 
-           IF PAG-W = 1
+           IF PAGE-COUNT = 1
               PERFORM CABECALHO-LISTA-REL.
 
            IF GS-IMPRIMIR = "S"

@@ -197,7 +197,7 @@
            05  ST-PAR001             PIC XX       VALUE SPACES.
            05  ST-LOG001             PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  AUXILIAR              PIC 9(04).
            05  MASC-QTDE             PIC ZZZ.ZZ9.
            05  EMP-REFERENCIA.

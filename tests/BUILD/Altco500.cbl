@@ -79,7 +79,7 @@
       *    ordem-w - flag que controla a ordem do relatorio - numérico
       *    ou alfabético
            05  HORA-W                PIC 9(8)     VALUE ZEROS.
-           05  PAG-W                 PIC 9(2)     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9(2)     VALUE ZEROS.
            05  parametros-w          pic x(40)    value spaces.
            05  EMP-REFERENCIA.
                10  VAR1              PIC X VALUE "\".

@@ -80,7 +80,7 @@
            05  ST-WORK1              PIC XX       VALUE SPACES.
            05  VARIA-W1              PIC 9(8)     VALUE ZEROS.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -232,7 +232,7 @@
            MOVE GS-DATA-BLOCK-VERSION-NO
                                    TO DS-DATA-BLOCK-VERSION-NO
            MOVE GS-VERSION-NO      TO DS-VERSION-NO
-           MOVE ZEROS              TO PAG-W ERRO-W.
+           MOVE ZEROS              TO PAGE-COUNT ERRO-W.
            MOVE EMPRESA-W          TO EMP-REC.
            MOVE "CAD010" TO ARQ-REC.  MOVE EMPRESA-REF TO PATH-CAD010.
            MOVE "COD040" TO ARQ-REC.  MOVE EMPRESA-REF TO PATH-COD040.

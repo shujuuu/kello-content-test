@@ -45,7 +45,7 @@
            05  DATA-LOG              PIC X(10)    VALUE SPACES.
            05  HORARIO               PIC X(08)    VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  LIN                   PIC 9(02)    VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)

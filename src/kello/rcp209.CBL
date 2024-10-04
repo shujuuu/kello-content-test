@@ -139,7 +139,7 @@
            05  ST-WORK2              PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
            05  LIN                   PIC 99       VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  MOVER                 PIC X(01)    VALUE SPACES.
            05  QUAL-CAB              PIC 9(01)    VALUE ZEROS.
            05  EMP-REFERENCIA.
@@ -2394,7 +2394,7 @@
            PERFORM CALL-DIALOG-SYSTEM.
       *----------------------------------------------------------
        IMPRIMIR-RELATORIO SECTION.
-      *    MOVE ZEROS TO PAG-W.
+      *    MOVE ZEROS TO PAGE-COUNT.
 
       *    COPY CONDENSA.
 
@@ -2742,8 +2742,8 @@
       *    WRITE REG-RELAT FROM LINDET AFTER 2.
 
       *CABECALHO SECTION.
-      *    ADD 1 TO LIN PAG-W.
-      *    MOVE PAG-W TO PG-REL.
+      *    ADD 1 TO LIN PAGE-COUNT.
+      *    MOVE PAGE-COUNT TO PG-REL.
       *    IF LIN = 1
       *       WRITE REG-RELAT FROM CAB01 AFTER 0
       *    ELSE
@@ -2757,8 +2757,8 @@
       *    MOVE 6 TO LIN.
       *
       *CABECALHO2 SECTION.
-      *    ADD 1 TO LIN PAG-W.
-      *    MOVE PAG-W TO PG-REL.
+      *    ADD 1 TO LIN PAGE-COUNT.
+      *    MOVE PAGE-COUNT TO PG-REL.
       *    IF LIN = 1
       *       WRITE REG-RELAT FROM CAB01 AFTER 0
       *    ELSE

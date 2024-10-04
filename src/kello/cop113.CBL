@@ -119,7 +119,7 @@
            05  FS-RELAT              PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
            05  LIN                   PIC 99       VALUE ZEROS.
-           05  PAG-W                 PIC 99       VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 99       VALUE ZEROS.
            05  AUX-MESANO            PIC 9(06)    VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
@@ -796,7 +796,7 @@
            PERFORM CALL-DIALOG-SYSTEM.
       *------------------------------------------------------------
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            OPEN OUTPUT RELAT
 
@@ -851,10 +851,10 @@
            MOVE GS-MESANO-FIM  TO MESANO-REL2
 
            MOVE GS-DESCR-ORDEM TO ORDEM-REL.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
 
-           IF PAG-W = 1
+           IF PAGE-COUNT = 1
               WRITE REG-RELAT FROM CAB01 AFTER 0
            ELSE
               WRITE REG-RELAT FROM CAB01 AFTER PAGE.

@@ -107,7 +107,7 @@ The <SwmToken path="src/kello/crp055.cbl" pos="846:1:3" line-data="       IMPRIM
 
 ```cobol
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            COPY CONDENSA.
 

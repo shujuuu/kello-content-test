@@ -134,7 +134,7 @@
            05  ST-WORK2              PIC XX       VALUE SPACES.
            05  FS-LOGACESS           PIC XX       VALUE SPACES.
            05  ERRO-W                PIC 9        VALUE ZEROS.
-           05  PAG-W                 PIC 9999     VALUE ZEROS.
+           05  PAGE-COUNT                 PIC 9999     VALUE ZEROS.
            05  EMP-REFERENCIA.
                10  FILLER            PIC X(15)
                    VALUE "\PROGRAMA\KELLO".
@@ -1449,7 +1449,7 @@
            PERFORM CALL-DIALOG-SYSTEM.
       *-------------------------------------------------------
        IMPRIME-RELATORIO SECTION.
-           MOVE ZEROS TO PAG-W.
+           MOVE ZEROS TO PAGE-COUNT.
 
            IF GS-SOMENTE-FOGO = 1
               MOVE "SOMENTE FOGO" TO DETALHE-REL
@@ -1514,10 +1514,10 @@
 
        CABECALHO2 SECTION.
            MOVE GS-DESCR-ORDEM TO ORDEM-REL.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL-A.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL-A.
 
-           IF PAG-W NOT < GS-PAGINA
+           IF PAGE-COUNT NOT < GS-PAGINA
               IF LIN = 1
                  WRITE REG-RELAT FROM CAB01-A AFTER 0
               ELSE
@@ -1549,7 +1549,7 @@
            MOVE GS-LINDET           TO LINDET-REL.
 
 
-           IF PAG-W NOT < GS-PAGINA
+           IF PAGE-COUNT NOT < GS-PAGINA
               WRITE REG-RELAT FROM LINDET.
 
 
@@ -1559,7 +1559,7 @@
 
        TOTALIZA-REL2 SECTION.
 
-           IF PAG-W NOT < GS-PAGINA
+           IF PAGE-COUNT NOT < GS-PAGINA
               WRITE REG-RELAT FROM CAB05a-A AFTER 2.
 
            MOVE GS-TOT-ESTOJO       TO LINTOT-ESTOJO-A
@@ -1575,7 +1575,7 @@
            MOVE GS-MEDIA-W-FA       TO LINTOT-MEDIA-A
            MOVE GS-MEDIA-W-CLI      TO LINTOT-MEDIA-CLI-A
 
-           IF PAG-W NOT < GS-PAGINA
+           IF PAGE-COUNT NOT < GS-PAGINA
               WRITE REG-RELAT FROM LINTOTa-A
               WRITE REG-RELAT FROM CAB05b-A
               WRITE REG-RELAT FROM LINTOTb-A.
@@ -1586,7 +1586,7 @@
 
       *    WRITE REG-RELAT FROM LINDET.
 
-           IF PAG-W NOT < GS-PAGINA
+           IF PAGE-COUNT NOT < GS-PAGINA
               WRITE REG-RELAT FROM LINDET.
 
            ADD 1 TO LIN.
@@ -1622,12 +1622,12 @@
            MOVE TOTAL-BOOK             TO QTDE-E6
            MOVE QTDE-E6                TO LINTOT-REL(108:07)
 
-           IF PAG-W NOT < GS-PAGINA
+           IF PAGE-COUNT NOT < GS-PAGINA
               WRITE REG-RELAT FROM LINTOT.
 
            ADD 1 TO LIN.
 
-           IF PAG-W NOT < GS-PAGINA
+           IF PAGE-COUNT NOT < GS-PAGINA
               MOVE SPACES       TO LINTOT-REL
               WRITE REG-RELAT FROM LINTOT.
 
@@ -1637,12 +1637,12 @@
 
        CABECALHO SECTION.
            MOVE GS-DESCR-ORDEM TO ORDEM-REL.
-           ADD 1 TO LIN PAG-W.
-           MOVE PAG-W TO PG-REL.
+           ADD 1 TO LIN PAGE-COUNT.
+           MOVE PAGE-COUNT TO PG-REL.
 
-      *    display "PAG-W = " PAG-W " GS-PAGINA = " GS-PAGINA stop " "
+      *    display "PAGE-COUNT = " PAGE-COUNT " GS-PAGINA = " GS-PAGINA stop " "
 
-           IF PAG-W NOT < GS-PAGINA
+           IF PAGE-COUNT NOT < GS-PAGINA
       *    display "entrei" stop " "
               IF LIN = 1
                  WRITE REG-RELAT FROM CAB01 AFTER 0

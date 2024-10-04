@@ -180,7 +180,7 @@ The <SwmPath>[src/oep/oep030.cbl](src/oep/oep030.cbl)</SwmPath> file contains th
            MOVE DATA-INV TO DATA-MOVTO-W DATA-MOVTO-REL.
            CALL "GRIDAT2"  USING DATA-INV.
            MOVE DATA-INV       TO DATA-DIA-I.
-           MOVE ZEROS TO PAG-W ERRO-W.
+           MOVE ZEROS TO PAGE-COUNT ERRO-W.
            INITIALIZE GS-DATA-BLOCK
            INITIALIZE DS-CONTROL-BLOCK
            MOVE GS-DATA-BLOCK-VERSION-NO
